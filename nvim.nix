@@ -1,3 +1,4 @@
+-- TODO: Once this PR is merged I can get rid of this
 { config, pkgs, lib, ... }:
 let
   myHop = pkgs.vimUtils.buildVimPlugin {

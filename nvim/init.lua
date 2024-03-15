@@ -1,3 +1,5 @@
+-- TODO: https://www.reddit.com/r/neovim/comments/15z0y2j/need_help_i_am_having_trouble_getting/
+
 require('user.colors')
 require('user.hop')
 require('user.vimprefs')
@@ -9,3 +11,5 @@ require('user.surround')
 require('user.lualine')
 require('user.treesitter')
 require('user.keymaps')
+require('user.lsp')
+require('user.quickfix')

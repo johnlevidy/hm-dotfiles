@@ -1,9 +1,9 @@
--- TODO: Once this PR is merged I can get rid of this
+# TODO: Once this PR is merged I can get rid of this
 { config, pkgs, lib, ... }:
 let
   myHop = pkgs.vimUtils.buildVimPlugin {
     name = "myHop";
-    src = /home/john/Code/hop.nvim;
+    src = /home/john/Code/hopchanges/final;
   };
 in
 {

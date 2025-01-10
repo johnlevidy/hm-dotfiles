@@ -8,6 +8,8 @@
     home.homeDirectory = "/home/john";
     imports = [
       ./nvim.nix
+      ./i3status.nix
+      ./rofi.nix
     ];
 
     home.stateVersion = "23.11";
@@ -35,10 +37,7 @@
       enable = true;
       enableBashIntegration = true;
     };
-    programs.rofi = {
-      enable = true;
-      font = "Droid Sans Mono 28";
-    };
+    
     xsession = {
       enable = true;
     }; 

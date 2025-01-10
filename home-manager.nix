@@ -1,24 +1,22 @@
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-in
 {
   imports = [
-    (import "${home-manager}/nixos")
+    <home-manager/nixos>
   ];
   home-manager.users.john = {
+    home.username = "john";
+    home.homeDirectory = "/home/john";
     imports = [
       ./nvim.nix
     ];
-     
+
+    home.stateVersion = "23.11";
     home.sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
       TERMINAL = "konsole";
     };
-    home.stateVersion = "23.11";
     home.packages = with pkgs; [
-      ripgrep
       jq
       fzf
       llvmPackages_latest.clang-unwrapped
@@ -31,13 +29,18 @@ in
       gcc11
       git
       tmux
+      rofi
     ];
     programs.dircolors = {
       enable = true;
       enableBashIntegration = true;
     };
+    programs.rofi = {
+      enable = true;
+      font = "Droid Sans Mono 28";
+    };
     xsession = {
       enable = true;
-    };
+    }; 
   };
 }

@@ -19,6 +19,7 @@
       TERMINAL = "konsole";
     };
     home.packages = with pkgs; [
+      ripgrep
       jq
       fzf
       llvmPackages_latest.clang-unwrapped

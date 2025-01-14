@@ -7,6 +7,7 @@
 - clean up the rofi config to work like i3 one
 - some music playing tray in the polybar
 - good names for terminals
+- set xset noblank on startup
 
 Completed
 # polybar

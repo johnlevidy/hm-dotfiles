@@ -8,7 +8,8 @@
     home.homeDirectory = "/home/john";
     imports = [
       ./nvim.nix
-      ./i3status.nix
+      ./polybar.nix
+      # ./i3status.nix
       ./rofi.nix
     ];
 

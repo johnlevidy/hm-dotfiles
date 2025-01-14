@@ -1,11 +1,15 @@
-1. get everything reasonable in github
-2. get rofi and i3 specific config into user config space
-6. media keys
-7. share config with work setup
-8. finalize screen saver / dpms settings
-9. white mouse
-10. compositor
-11. floating_maximum_size
-12. polybar
-13. gaps
-14. file explorer at least?
+- get everything reasonable in github
+- get rofi and i3 specific config into user config space
+- media keys
+- share config with work setup
+- polybar
+- file explorer at least?
+- change rofi window width
+- set up redshift / flux.io
+- clean up the rofi config to work like i3 one
+# finalize screen saver / dpms settings
+# floating_maximum_size -- not possible, people think tiling WM is at odds with setting a max size.
+# white mouse -- didn't do, not worth GTK, etc. all the hassle
+# gaps
+# - finalize the background of everything
+# - compositor

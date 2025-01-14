@@ -1,0 +1,10 @@
+/* I'm very upset I have to do this, but maybe I can contribute to the rofi.nix project to help them make a better way to do this. I want to be able to override the baseline themes */
+
+@theme "gruvbox-dark-soft"
+/* Have to override the themes width */
+window {
+  width: 1000px;
+}
+element-icon {
+  size: 26px;
+}

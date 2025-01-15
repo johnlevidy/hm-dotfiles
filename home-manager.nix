@@ -34,6 +34,7 @@
       git
       tmux
       rofi
+      discord
     ];
     programs.dircolors = {
       enable = true;

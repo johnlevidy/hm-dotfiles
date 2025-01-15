@@ -97,13 +97,14 @@ in
       
         # Focused workspace style
         label-focused = "%index%";
-        label-focused-background = gruvbox.bright_orange;
-        label-focused-foreground = gruvbox.dark0;
+        label-focused-background = gruvbox.dark1;
+        label-focused-underline = gruvbox.bright_orange;
+        label-focused-foreground = gruvbox.light4;
         label-focused-padding = 2;
       
         # Unfocused workspace style
         label-unfocused = "%index%";
-        label-unfocused-background = gruvbox.dark1;
+        label-unfocused-background = gruvbox.dark0;
         label-unfocused-foreground = gruvbox.light4;
         label-unfocused-padding = 2;
       

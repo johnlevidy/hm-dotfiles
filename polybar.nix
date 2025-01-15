@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
+  polybarMedia = pkgs.runCommand "polybar-media" {} ''
+    mkdir -p $out/polybar_media
+    cp ${/home/john/hm-dotfiles/polybar_media.sh} $out/polybar_media/polybar_media.sh
+  '';
   polybarPackage = pkgs.polybar.override {
     i3Support = true;
     alsaSupport = true;
@@ -69,9 +73,16 @@ in
 
         modules-left = "i3";
         modules-center = "date";
-        modules-right = "cpu temperature memory wlan volume";
+        modules-right = "media cpu temperature memory wlan volume";
       };
 
+      "module/media" = {
+        type = "custom/script";
+        exec = "${polybarMedia}/polybar_media/polybar_media.sh run";
+        tail = true;
+        format-underline = gruvbox.bright_purple;
+        click-left = "${polybarMedia}/polybar_media/polybar_media.sh play_pause_last_player";
+      };
       "module/wlan" = {
         type = "internal/network";
         interval = "3.0";
@@ -175,7 +186,7 @@ in
         ramp-volume-0 = "🔈";
         ramp-volume-1 = "🔉";
         ramp-volume-2 = "🔊";
-        label-muted = "🔇 00%";
+        label-muted = "🔇 -- ";
         label-muted-foreground = "#66";
         format-muted-underline = gruvbox.bright_purple;
         format-volume-underline = gruvbox.bright_purple;

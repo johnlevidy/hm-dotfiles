@@ -20,6 +20,7 @@
       TERMINAL = "konsole";
     };
     home.packages = with pkgs; [
+      playerctl
       ripgrep
       feh # Image viewer.
       xfce.thunar

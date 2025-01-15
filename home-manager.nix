@@ -21,6 +21,8 @@
     };
     home.packages = with pkgs; [
       ripgrep
+      feh # Image viewer.
+      xfce.thunar
       jq
       fzf
       llvmPackages_latest.clang-unwrapped

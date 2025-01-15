@@ -2,14 +2,14 @@
 - get rofi and i3 specific config into user config space
 - media keys
 - share config with work setup
-- file explorer at least?
 - set up redshift / flux.io
 - clean up the rofi config to work like i3 one
 - some music playing tray in the polybar
-- good names for terminals
-- set xset noblank on startup
 
 Completed
+# file explorer at least?
+# good names for terminals
+# set xset noblank on startup
 # polybar
 # change rofi window width
 # finalize screen saver / dpms settings

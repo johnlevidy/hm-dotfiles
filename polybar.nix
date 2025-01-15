@@ -43,9 +43,9 @@ in
   services.polybar = {
     enable = true;
     package = polybarPackage;
-    script = ''
-      polybar &
-    '';
+    # We just null this because i3 has to start it. otherwise this doesn't wait long enough 
+    # and the i3 socket isn't available when it starts
+    script = "";
     config = {
       "bar/main" = fonts // {
         height = 70;

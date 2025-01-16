@@ -12,6 +12,7 @@
       # ./i3status.nix
       ./rofi.nix
       ./redshift.nix      
+      ./konsole.nix
     ];
 
     home.stateVersion = "23.11";

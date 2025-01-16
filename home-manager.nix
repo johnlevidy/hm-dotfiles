@@ -21,6 +21,14 @@
       BROWSER = "firefox";
       TERMINAL = "konsole";
     };
+    home.pointerCursor = with pkgs; {
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+      size = 32;
+      x11.enable = true;
+      gtk.enable = true;
+    };
+    gtk.enable = true;
     home.packages = with pkgs; [
       pkgs.redshift
       playerctl
@@ -41,6 +49,11 @@
       tmux
       rofi
       discord
+      htop
+      firefox
+      google-chrome
+      konsole
+      pavucontrol
     ];
     programs.dircolors = {
       enable = true;

@@ -6,9 +6,12 @@ Code Cleanup
 - one day try to make a konsole configurator in typed nix
 
 Features
-- white cursor
+- polybar not showing volume first try
 
 Completed
+# gruvbox greeter + decrease font
+# white cursor ( cant figure out why its changing sizes )
+  because GTK based apps didn't see the new size...
 # get konsole hermetic
 # greeter cleanup
 # gtk theme ( nothing can really use it, rofi, polybar, and nix all have different configs. konsole doesn't even seem to be configurable from nix )

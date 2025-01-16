@@ -5,10 +5,10 @@ Code Cleanup
 - clean up the rofi config to work like i3 one
 
 Features
-- media keys
 - set up redshift / flux.io
 
 Completed
+# media keys
 # file explorer at least?
 # good names for terminals
 # set xset noblank on startup

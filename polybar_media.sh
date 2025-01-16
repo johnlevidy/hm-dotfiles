@@ -33,20 +33,23 @@ run() {
 }
 
 # Function to toggle play-pause based on the last known player name
-play_pause_last_player() {
+command_last_player() {
     if [[ -f "$PLAYER_NAME_FILE" ]]; then
         # Read player name from the file
         playerName=$(cat "$PLAYER_NAME_FILE")
         # Execute play-pause command for the player
-        playerctl --player="$playerName" play-pause
+        playerctl --player="$playerName" $1
     else
         echo "No player name available"
     fi
 }
 
 # Optionally, provide a way to call functions based on the script input
+# TODO get rid of all these repeated suffixes
 case "$1" in
     "run") run;;
-    "play_pause_last_player") play_pause_last_player;;
+    "play_pause_last_player") command_last_player play-pause;;
+    "next_last_player") command_last_player next;;
+    "previous_last_player") command_last_player previous;;
     *) echo "Invalid option"; exit 1;;
 esac

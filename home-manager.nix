@@ -11,6 +11,7 @@
       ./polybar.nix
       # ./i3status.nix
       ./rofi.nix
+      ./redshift.nix      
     ];
 
     home.stateVersion = "23.11";
@@ -20,6 +21,7 @@
       TERMINAL = "konsole";
     };
     home.packages = with pkgs; [
+      pkgs.redshift
       playerctl
       ripgrep
       feh # Image viewer.

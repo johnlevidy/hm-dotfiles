@@ -6,8 +6,8 @@
     temperature = {
       night = 2000;
     };
-    latitude = "51.5072";
-    longitude = "0.1276";
+    latitude = "40.71";
+    longitude = "74.00";
     dawnTime = "6:00-7:45";
     duskTime = "18:35-20:15";
 

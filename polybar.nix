@@ -7,7 +7,6 @@ let
   '';
   polybarPackage = pkgs.polybar.override {
     i3Support = true;
-    alsaSupport = true;
     pulseSupport = true;
   };
   gruvbox = {
@@ -180,7 +179,7 @@ in
       };
 
       "module/volume" = {
-        type = "internal/alsa";
+        type = "internal/pulseaudio";
         format-volume = "<ramp-volume> <label-volume>";
         label-volume = "%percentage%%";
         ramp-volume-0 = "🔈";

@@ -6,9 +6,10 @@ Code Cleanup
 - one day try to make a konsole configurator in typed nix
 
 Features
-- polybar not showing volume first try
+- Lock screen stuck verifying...
 
 Completed
+# polybar not showing volume first try
 # gruvbox greeter + decrease font
 # white cursor ( cant figure out why its changing sizes )
   because GTK based apps didn't see the new size...

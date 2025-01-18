@@ -1,10 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  polybarMedia = pkgs.runCommand "polybar-media" {} ''
-    mkdir -p $out/polybar_media
-    cp ${./polybar_media.sh} $out/polybar_media/polybar_media.sh
-  '';
+  scripts = import ../scripts/scripts.nix { inherit pkgs; };
   polybarPackage = pkgs.polybar.override {
     i3Support = true;
     pulseSupport = true;
@@ -77,10 +74,10 @@ in
 
       "module/media" = {
         type = "custom/script";
-        exec = "${polybarMedia}/polybar_media/polybar_media.sh run";
+        exec = "${scripts.mediaControl} run";
         tail = true;
         format-underline = gruvbox.bright_purple;
-        click-left = "${polybarMedia}/polybar_media/polybar_media.sh play_pause_last_player";
+        click-left = "${scripts.mediaControl} play_pause_last_player";
       };
       "module/wlan" = {
         type = "internal/network";

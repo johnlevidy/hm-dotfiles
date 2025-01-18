@@ -4,6 +4,7 @@ Code Cleanup
 - get rofi and i3 specific config into user config space
 - clean up the rofi config to work like i3 one
 - one day try to make a konsole configurator in typed nix
+- things like polybar script should have a nice package / fn other things can ref
 
 Features
 

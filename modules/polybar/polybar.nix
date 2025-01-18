@@ -3,7 +3,7 @@
 let
   polybarMedia = pkgs.runCommand "polybar-media" {} ''
     mkdir -p $out/polybar_media
-    cp ${/home/john/hm-dotfiles/polybar_media.sh} $out/polybar_media/polybar_media.sh
+    cp ${./polybar_media.sh} $out/polybar_media/polybar_media.sh
   '';
   polybarPackage = pkgs.polybar.override {
     i3Support = true;

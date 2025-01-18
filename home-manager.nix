@@ -8,11 +8,11 @@
     home.homeDirectory = "/home/john";
     imports = [
       ./nvim.nix
-      ./polybar.nix
+      ./modules/polybar/polybar.nix
       # ./i3status.nix
       ./rofi.nix
       ./redshift.nix      
-      ./konsole.nix
+      ./modules/konsole/konsole.nix
     ];
 
     home.stateVersion = "23.11";

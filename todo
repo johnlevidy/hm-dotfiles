@@ -6,9 +6,9 @@ Code Cleanup
 - one day try to make a konsole configurator in typed nix
 
 Features
-- Lock screen stuck verifying...
 
 Completed
+# Lock screen stuck verifying...
 # polybar not showing volume first try
 # gruvbox greeter + decrease font
 # white cursor ( cant figure out why its changing sizes )

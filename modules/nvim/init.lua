@@ -1,5 +1,3 @@
--- TODO: https://www.reddit.com/r/neovim/comments/15z0y2j/need_help_i_am_having_trouble_getting/
-
 require('user.colors')
 require('user.hop')
 require('user.vimprefs')

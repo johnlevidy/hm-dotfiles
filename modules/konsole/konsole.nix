@@ -1,9 +1,6 @@
 { pkgs, lib, ... }:
-
 let
-  writeKonsoleConfig = name: content: pkgs.writeText name content;
-
-  johnProfile = writeKonsoleConfig "john.profile" ''
+  johnProfile = pkgs.writeText "john.profile" ''
     [Appearance]
     ColorScheme=gruvbox
     Font=SauceCodePro Nerd Font,14,-1,5,50,0,0,0,0,0
@@ -27,7 +24,7 @@ let
     HistorySize=10000
   '';
 
-  gruvboxColorScheme = writeKonsoleConfig "gruvbox.colorscheme" ''
+  gruvboxColorScheme = pkgs.writeText "gruvbox.colorscheme" ''
     [Background]
     Color=29,32,33
     

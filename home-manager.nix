@@ -7,15 +7,17 @@
     home.username = "john";
     home.homeDirectory = "/home/john";
     imports = [
-      ./nvim.nix
+      ./modules/nvim/nvim.nix
       ./modules/polybar/polybar.nix
-      # ./i3status.nix
-      ./rofi.nix
-      ./redshift.nix      
+      ./modules/rofi/rofi.nix
+      ./modules/redshift/redshift.nix      
       ./modules/konsole/konsole.nix
     ];
 
+    # Do not change
     home.stateVersion = "23.11";
+    
+    xsession.enable = true; 
     home.sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
@@ -59,9 +61,5 @@
       enable = true;
       enableBashIntegration = true;
     };
-    
-    xsession = {
-      enable = true;
-    }; 
   };
 }

@@ -4,7 +4,7 @@
   programs.rofi = {
     enable = true;
     font = "Droid Sans Mono 24";
-    theme = "/home/john/hm-dotfiles/rofi_config.rasi";
+    theme = ./rofi_config.rasi;
     # Using extraConfig to append settings
     extraConfig = {
       drun-display-format = "{icon} {name}";

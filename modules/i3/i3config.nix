@@ -1,13 +1,44 @@
 {config, pkgs, ...}:
 let 
-  background = pkgs.runCommand "my-background" {} ''
-    mkdir -p $out/share/backgrounds
-    cp ${/home/john/hm-dotfiles/rosette_nebula.jpg} $out/share/backgrounds/background.jpg
+  background = pkgs.runCommand "prepare-background" {} ''
+    cp ${/home/john/hm-dotfiles/rosette_nebula.jpg} $out
   '';
   scripts = import ../scripts/scripts.nix { inherit pkgs; };
-  lock = pkgs.runCommand "lock" {} ''
-    cp ${./lock.sh} $out
-  '';
+  lockScript = pkgs.writeTextFile {
+    name = "lockScreen.sh";
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      systemctl stop --user picom.service
+      xrandr --output HDMI-0 --mode 3840x1080 --rate 60
+
+      i3lock-color \
+        -i "${background}" \
+        --date-str="%A, %B %d, %Y" \
+        --time-str="%H:%M:%S" \
+        --clock \
+        --time-size=40 \
+        --date-size=22 \
+        --greeter-align=-20 \
+        --date-color=ffffff \
+        --time-color=ffffff \
+        -e \
+        --insidever-color=ebdbb2ff \
+        --ringver-color=fe8019ff \
+        --inside-color=076678ff \
+        --ring-color=458588ff \
+        --line-color=076678ff \
+        --keyhl-color=fb4934ff \
+        --bshl-color=d3869bff \
+        --nofork \
+        --composite
+
+      xrandr --output HDMI-0 --mode 7680x2160 --rate 60
+      systemctl start --user picom.service
+    '';
+  };
   i3config = ''
 # i3 config file (v4)
 #
@@ -29,7 +60,7 @@ for_window [class=".*"] title_format "  %title"
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- "${lock}"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- "${lockScript}"
 
 # Start polybar here because it starts up too fast and the i3 socket isn't ready
 exec --no-startup-id "polybar >~/.polybarlogs 2>&1"

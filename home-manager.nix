@@ -12,25 +12,24 @@
       ./modules/rofi/rofi.nix
       ./modules/redshift/redshift.nix      
       ./modules/konsole/konsole.nix
+      ./modules/picom/picom.nix
+      ./modules/cursor/cursor.nix
     ];
 
     # Do not change
     home.stateVersion = "23.11";
-    
     xsession.enable = true; 
+    gtk.enable = true;
+    programs.dircolors = {
+      enable = true;
+      enableBashIntegration = true;
+    };
     home.sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
       TERMINAL = "konsole";
     };
-    home.pointerCursor = with pkgs; {
-      name = "phinger-cursors-light";
-      package = pkgs.phinger-cursors;
-      size = 32;
-      x11.enable = true;
-      gtk.enable = true;
-    };
-    gtk.enable = true;
+    
     home.packages = with pkgs; [
       pkgs.redshift
       playerctl
@@ -56,10 +55,10 @@
       google-chrome
       konsole
       pavucontrol
+      hsetroot
+      picom
+      xss-lock
+      rxvt-unicode-unwrapped
     ];
-    programs.dircolors = {
-      enable = true;
-      enableBashIntegration = true;
-    };
   };
 }

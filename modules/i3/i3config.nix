@@ -1,8 +1,6 @@
 {config, pkgs, ...}:
 let 
-  background = pkgs.runCommand "prepare-background" {} ''
-    cp ${/home/john/hm-dotfiles/rosette_nebula.jpg} $out
-  '';
+  share = import ../../share/share.nix { inherit pkgs; };
   scripts = import ../scripts/scripts.nix { inherit pkgs; };
   lockScript = pkgs.writeTextFile {
     name = "lockScreen.sh";
@@ -15,7 +13,7 @@ let
       xrandr --output HDMI-0 --mode 3840x1080 --rate 60
 
       i3lock-color \
-        -i "${background}" \
+        -i "${share.background}" \
         --date-str="%A, %B %d, %Y" \
         --time-str="%H:%M:%S" \
         --clock \

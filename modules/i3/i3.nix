@@ -15,10 +15,11 @@ let
       i3lock-color \
         -i "${share.background}" \
         --date-str="%A, %B %d, %Y" \
+        --fill \
         --time-str="%H:%M:%S" \
         --clock \
-        --time-size=40 \
-        --date-size=22 \
+        --time-size=32 \
+        --date-size=20 \
         --greeter-align=-20 \
         --date-color=ffffff \
         --time-color=ffffff \

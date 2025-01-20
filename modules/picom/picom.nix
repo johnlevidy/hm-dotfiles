@@ -8,5 +8,8 @@
     fade = true;
     fadeDelta = 5;
     inactiveOpacity = .88; 
+    settings.opacity-rule = [
+      "100:class_g = 'Google-chrome'"
+    ];
   };
 }

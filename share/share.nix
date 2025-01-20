@@ -1,10 +1,13 @@
 { pkgs }:
 let
-  background = pkgs.runCommand "background" { } ''
+  desktopBackground = pkgs.runCommand "background" { } ''
     cp ${./rosette_nebula.jpg} "$out"
-    chmod +x "$out"
+  '';
+  lockBackground = pkgs.runCommand "lock-background" { } ''
+    cp ${./small_rosette_nebula.jpg} "$out"
   '';
 in
 {
-  background = background;
+  desktopBackground = desktopBackground;
+  lockBackground = lockBackground;
 }

@@ -13,9 +13,8 @@ let
       xrandr --output HDMI-0 --mode 3840x1080 --rate 60
 
       i3lock-color \
-        -i "${share.background}" \
+        -i "${share.lockBackground}" \
         --date-str="%A, %B %d, %Y" \
-        --fill \
         --time-str="%H:%M:%S" \
         --clock \
         --time-size=32 \

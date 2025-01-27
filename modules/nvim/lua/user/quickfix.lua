@@ -117,7 +117,6 @@ local function start_job()
 
     last_non_build_tab = vim.api.nvim_get_current_tabpage()
     build_job = Job:new(vim.api.nvim_get_option('makeprg'), "BuildResults", on_build_finish)
-    vim.api.nvim_set_current_tabpage(last_non_build_tab)
     -- Switch back to the original tabs
     vim.api.nvim_set_current_tabpage(last_non_build_tab)
 
@@ -125,7 +124,7 @@ local function start_job()
     print("Build job launched with id: " .. build_job.job_id)
 end
 
-vim.opt.errorformat = '%f:%l error: %m'
+vim.opt.errorformat = '%f:%l: error: %m'
 vim.opt.errorformat:prepend('%f:%l:%c: error: %m')
 vim.opt.errorformat:prepend('%f:%l:%c: fatal error: %m')
 
@@ -163,5 +162,5 @@ local function cycle_quickfix_prev()
     return cycle_quickfix(false)
 end
 
-vim.keymap.set({'n'}, ')', cycle_quickfix_next, {noremap = true});
-vim.keymap.set({'n'}, '(', cycle_quickfix_prev, {noremap = true});
+vim.keymap.set({'n'}, ')', cycle_quickfix_next, {noremap = true})
+vim.keymap.set({'n'}, '(', cycle_quickfix_prev, {noremap = true})

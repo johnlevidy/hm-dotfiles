@@ -1,11 +1,7 @@
 local hop = require('hop')
 
-local readwise_distance = function(a, b, _)
-	return (100 * math.abs(b.row - a.row)) + (b.col - a.col);
-end
-
-hop.setup{keys = 'asdfjklqweruiopzxmtgbyhn', x_bias = 10,
-          distance_method = readwise_distance }
+hop.setup{keys = 'asdfjklqweruiopzxmtgbyhn', x_bias = 100000,
+          jump_on_sole_occurrence = false }
 
 local directions = require('hop.hint').HintDirection
 vim.keymap.set({'o', 'n'}, 'f', function()

@@ -31,6 +31,12 @@ function Job:cleanup()
     self.killed = true
     vim.fn.jobstop(self.job_id)
     local _, _ = pcall(function() vim.api.nvim_win_close(self.output_window, {force = true}) end)
+    local is_valid = vim.api.nvim_buf_is_valid(self.output_buffer)
+    if is_valid then
+        vim.api.nvim_buf_delete(self.output_buffer, {force = true})
+    else
+        print("Buffer already removed.")
+    end
     vim.api.nvim_buf_delete(self.output_buffer, {force = true})
 end
 
@@ -65,7 +71,7 @@ end
 -- Check job status
 local function check_job_status()
     if build_job == nil then
-        printf("No build jobs have been run!")
+        print("No build jobs have been run!")
         return
     end
     toggle()
@@ -81,7 +87,7 @@ local function on_build_finish(killed, exit_code)
     -- Interpret the buffer results
     vim.cmd("cbuffer " .. build_job.output_buffer)
     local qflist = vim.fn.getqflist()
-    local visisted = {}
+    local visited = {}
     local retlist = {}
     for _, val in ipairs(qflist) do
         local fname = vim.fn.bufname(val.bufnr)
@@ -110,12 +116,19 @@ local function start_job()
     build_job = nil
 
     last_non_build_tab = vim.api.nvim_get_current_tabpage()
-    build_job = Job:new('make', "BuildResults", on_build_finish)
+    build_job = Job:new(vim.api.nvim_get_option('makeprg'), "BuildResults", on_build_finish)
     vim.api.nvim_set_current_tabpage(last_non_build_tab)
+    -- Switch back to the original tabs
+    vim.api.nvim_set_current_tabpage(last_non_build_tab)
+
+    -- Start the job
     print("Build job launched with id: " .. build_job.job_id)
 end
 
-vim.opt.errorformat = '%f:%l:%c: error: %m'
+vim.opt.errorformat = '%f:%l error: %m'
+vim.opt.errorformat:prepend('%f:%l:%c: error: %m')
+vim.opt.errorformat:prepend('%f:%l:%c: fatal error: %m')
+
 vim.keymap.set({'n'}, '<C-y>', start_job, {noremap = true, silent = true});
 vim.keymap.set({'n'}, '<C-q>', check_job_status, {noremap = true, silent = true});
 
@@ -123,7 +136,7 @@ local function is_quickfix_open()
     local windows = vim.api.nvim_list_wins()
     for _, win in ipairs(windows) do
         local buf = vim.api.nvim_win_get_buf(win)
-        if vim.api.nvim_bug_get_option(buf, 'buftype') == 'quickfix' then
+        if vim.api.nvim_buf_get_option(buf, 'buftype') == 'quickfix' then
             return true
         end
     end
@@ -150,5 +163,5 @@ local function cycle_quickfix_prev()
     return cycle_quickfix(false)
 end
 
-vim.keymap.set({'n'}, ')', cycle_quickfix_next, {noremap = true, silent = true});
-vim.keymap.set({'n'}, '(', cycle_quickfix_prev, {noremap = true, silent = true});
+vim.keymap.set({'n'}, ')', cycle_quickfix_next, {noremap = true});
+vim.keymap.set({'n'}, '(', cycle_quickfix_prev, {noremap = true});

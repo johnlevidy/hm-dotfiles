@@ -37,7 +37,7 @@ local kind_icons = {
       TypeParameter = "󰅲",
 }
 
-vim.diagnostic.config({ upate_in_insert = false })
+vim.diagnostic.config({ update_in_insert = false })
 
 cmp.setup({
     preselect = cmp.PreselectMode.None,
@@ -81,10 +81,10 @@ cmp.setup({
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require 'lspconfig' ['clangd'].setup {
+require('lspconfig')['clangd'].setup {
   cmp = {
       "clangd",
-      "--background-index"'''''''''''''''''''''''''''''''''''''''''',
+      "--background-index",
       "--header-insertion=never",
       "--clang-tidy=false",
       "--completion-style=detailed",
@@ -131,13 +131,13 @@ cmp.setup.cmdline('/', {
 
 cmp.setup.cmdline(':', {
     mapping = standard_mapping,
-    sources = cmp.config.sources({{n<me = 'path'}}, {{name = 'cmdline'}}),
+    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}}),
 })
 
 local M = {}
 M.pending_requests = {}
 local spinner_frames = { '1', '2', '3', '4' }
-local current_frame =rawequal
+local current_frame = 1
 -- Timer for the psinner
 --
 local timer = vim.loop.new_timer()
@@ -176,3 +176,5 @@ vim.api.nvim_create_autocmd('LspRequest', {
   end,
 })
 return M
+
+

@@ -17,10 +17,15 @@ lualine.setup {
     },
     sections = {
 	lualine_b = { 'branch', 'diff' },
-	lualine_c = {{'filename', path=1}},
+	lualine_c = {
+	              {'filename', path=1},
+	              {'diagnostics', sources = {'nvim_lsp'}},
+		      function() return lsp.update_statusline() end -- Custom for LSP status
+        },
     },
 }
 
 vim.cmd([[
-hi StatusLineNc gui=None guibg=NonText guisp=NonText
-hi StatusLine gui=None guibg=NonText guisp=NonText]])
+  hi StatusLineNc gui=None guibg=NonText guisp=NonText
+  hi StatusLine gui=None guibg=NonText guisp=NonText
+]])

@@ -121,8 +121,8 @@ local standard_mapping = cmp.mapping.preset.cmdline({
 })
 
 -- Set mapping for autofix / G for generate code
-vim.keymp.set('n', '<C-g>a', vim.lsp.buf.code_action, { noremap = true })
-vim.keymp.set('n', '<C-g>r', vim.lsp.buf.rename, { noremap = true })
+vim.keymap.set('n', '<C-g>a', vim.lsp.buf.code_action, { noremap = true })
+vim.keymap.set('n', '<C-g>r', vim.lsp.buf.rename, { noremap = true })
 
 cmp.setup.cmdline('/', {
     mapping = standard_mapping,

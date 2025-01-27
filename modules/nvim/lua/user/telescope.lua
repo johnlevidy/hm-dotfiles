@@ -32,7 +32,7 @@ telescope.setup {
 			case_mode = 'smart_case'
 		},
 		["ui-select"] = {
-		  require("telscope.tehmes").get_dropdown {}
+		  require("telescope.themes").get_dropdown {}
 		}
 	}
 }

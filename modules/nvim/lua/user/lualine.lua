@@ -8,7 +8,7 @@ lualine.setup {
 	component_separators = {'', ''},
 	disabled_filetypes = {"alpha", "dashboard", "NvimTree", "Outline"},
 	always_divide_middle = true,
-	globalstatus = true,
+	globalstatus = false,
 	refresh = {
 	    statusline = 200,
 	    tabline = 200,

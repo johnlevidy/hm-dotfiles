@@ -8,4 +8,6 @@ vim.cmd 'set hlsearch'
 vim.cmd 'set number'
 vim.cmd 'set relativenumber'
 vim.cmd 'set cursorline'
--- vim.cmd 'set showtabline=2'
+
+vim.cmd 'set showtabline=2'
+vim.cmd 'set nofoldenable'

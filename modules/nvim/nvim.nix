@@ -20,10 +20,12 @@
       # all for autocomplete
       vim-vsnip
       lspkind-nvim
+      cmp-buffer
       cmp-nvim-lsp
       cmp-vsnip
       cmp-path
       nvim-cmp
+      cmp-cmdline
       nvim-lspconfig
       # surround with ys, delete with ds
       nvim-surround

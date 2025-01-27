@@ -1,11 +1,5 @@
 # TODO: Once this PR is merged I can get rid of this
 { config, pkgs, lib, ... }:
-let
-  myHop = pkgs.vimUtils.buildVimPlugin {
-    name = "myHop";
-    src = /home/john/Code/hopchanges/final;
-  };
-in
 {
   programs.neovim = {
     enable = true;
@@ -22,6 +16,7 @@ in
       telescope-nvim
       plenary-nvim
       telescope-fzf-native-nvim
+      telescope-ui-select-nvim
       # all for autocomplete
       vim-vsnip
       lspkind-nvim
@@ -37,10 +32,12 @@ in
       # create missing directories on file save
       mkdir-nvim
       # better navigation
-      # hop-nvim
-      myHop
+      hop-nvim
       # symbolic outlines
       symbols-outline-nvim
+      vim-markdown
+      obsidian-nvim
+      fidget-nvim
     ];
   };
   xdg.configFile.nvim = {

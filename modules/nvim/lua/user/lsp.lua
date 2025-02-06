@@ -114,6 +114,11 @@ require('lspconfig')['lua_ls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+require('lspconfig').pyright.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
 -- Use buffer sources for '/'
 local standard_mapping = cmp.mapping.preset.cmdline({
     ['<C-n>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },

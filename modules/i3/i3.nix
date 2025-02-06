@@ -67,6 +67,7 @@ exec --no-startup-id "polybar >~/.polybarlogs 2>&1"
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0"
@@ -88,12 +89,24 @@ set $right l
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
+# Lock the screen on mod + l
+bindsym Mod4+l exec --no-startup-id "xset s activate"
+
+# screenshot on mod4 + shift + s ( same as windows )
+# also places in clipboard
+bindsym Mod4+Shift+S exec --no-startup-id "scrot --select ~/Pictures/Screenshots/%b-%d-%H:%M:%S.png -e 'xclip -selection clipboard -t image/png -i $f'"
+
+# Experimenting with no titles
+default_border pixel 1
+default_floating_border pixel 1
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Control+Mod1+t exec i3-sensible-terminal
+# bindsym Mod1+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -209,6 +222,8 @@ bindsym Mod1+Shift+c reload
 bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $Mod1+n exec i3-input -F 'rename workspace to "%s"' -P 'New window name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

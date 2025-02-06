@@ -3,7 +3,9 @@
   imports = [
     <home-manager/nixos>
   ];
+  home-manager.useGlobalPkgs = true;
   home-manager.users.john = {
+
     home.username = "john";
     home.homeDirectory = "/home/john";
     imports = [
@@ -20,6 +22,12 @@
     home.stateVersion = "23.11";
     xsession.enable = true; 
     gtk.enable = true;
+    programs.bash = {
+      enable = true;
+      shellAliases = {
+        gl = "git log --all --graph --decorate --oneline";
+      };
+    };
     programs.dircolors = {
       enable = true;
       enableBashIntegration = true;
@@ -42,6 +50,7 @@
       python311Packages.compiledb
       ccls
       lua-language-server
+      pyright
       lua
       brave
       spotify
@@ -59,6 +68,8 @@
       picom
       xss-lock
       rxvt-unicode-unwrapped
+      scrot
+      xclip
     ];
   };
 }

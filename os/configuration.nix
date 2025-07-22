@@ -13,6 +13,7 @@ in
     dconf # Required for gtk to be enabled, which is required to get cursor configs working
     gruvbox-gtk-theme
     home-manager
+    bazecor
   ];
   imports =
     [ # Include the results of the hardware scan.
@@ -55,12 +56,29 @@ in
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluez;
+  };
+  # services.blueman-applet.enable = true;
+  services.blueman = {
+    enable = true;
+  };
   services.pipewire = {
     enable = true;
     alsa.support32Bit = true;
     alsa.enable = true;
     pulse.enable = true;
   };
+  services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
+  "monitor.bluez.properties" = {
+      "bluez5.enable-sbc-xq" = true;
+      "bluez5.enable-msbc" = true;
+      "bluez5.enable-hw-volume" = true;
+      "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+  };
+};
 
   services.printing = {
     enable = true;

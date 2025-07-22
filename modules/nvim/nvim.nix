@@ -7,6 +7,7 @@
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      markdown-preview-nvim
       nvim-treesitter
       nvim-treesitter.withAllGrammars
       lualine-nvim
@@ -14,6 +15,7 @@
       gruvbox-nvim
       # telescope
       telescope-nvim
+      nui-nvim
       plenary-nvim
       telescope-fzf-native-nvim
       telescope-ui-select-nvim

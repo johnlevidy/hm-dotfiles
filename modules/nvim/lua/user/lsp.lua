@@ -88,6 +88,7 @@ require('lspconfig')['clangd'].setup {
       "--header-insertion=never",
       "--clang-tidy=false",
       "--completion-style=detailed",
+      "-ferror-limit=0",
   },
   on_attach = on_attach,
   capabilities = capabilities,

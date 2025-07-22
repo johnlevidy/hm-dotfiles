@@ -69,7 +69,7 @@ in
 
         modules-left = "i3";
         modules-center = "date";
-        modules-right = "media cpu temperature memory wlan volume";
+        modules-right = "media cpu temperature memory wlan bluetooth volume";
       };
 
       "module/media" = {
@@ -173,6 +173,14 @@ in
         format = "<label>";
         label = "MEM: %percentage_used%%";
         format-underline = gruvbox.bright_yellow;
+      };
+
+      "module/bluetooth" = {
+        type = "custom/script";
+        exec = "${scripts.bluetooth} status";
+        interval = 1;
+        click-left = "exec blueman-manager";
+        format-underline = gruvbox.bright_blue;
       };
 
       "module/volume" = {

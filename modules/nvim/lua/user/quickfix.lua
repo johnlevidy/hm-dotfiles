@@ -36,8 +36,8 @@ function Job:cleanup()
         vim.api.nvim_buf_delete(self.output_buffer, {force = true})
     else
         print("Buffer already removed.")
+        return
     end
-    vim.api.nvim_buf_delete(self.output_buffer, {force = true})
 end
 
 function Job:set_buffer_name(name)

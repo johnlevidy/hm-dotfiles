@@ -3,7 +3,7 @@ let
   johnProfile = pkgs.writeText "john.profile" ''
     [Appearance]
     ColorScheme=gruvbox
-    Font=SauceCodePro Nerd Font,14,-1,5,50,0,0,0,0,0
+    Font=SauceCodePro Nerd Font,13,-1,5,50,0,0,0,0,0
     TabColor=27,30,32,0
     
     [Cursor Options]

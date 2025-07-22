@@ -35,4 +35,11 @@
     powerManagement.enable = false;
     open = false;
   };
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 }

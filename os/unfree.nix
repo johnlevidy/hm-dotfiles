@@ -10,5 +10,6 @@
       "spotify"
       "discord"
       "google-chrome"
+      "runescape"
     ];
 }

@@ -120,6 +120,8 @@ require('lspconfig').pyright.setup{
     capabilities = capabilities,
 }
 
+require('lspconfig').ocamllsp.setup{}
+
 -- Use buffer sources for '/'
 local standard_mapping = cmp.mapping.preset.cmdline({
     ['<C-n>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },

@@ -49,7 +49,15 @@ end
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<C-p>',  execute_with_mark(builtin.find_files), {noremap = true})
+vim.keymap.set('n', '<C-f>p', function()
+  execute_with_mark(require('telescope.builtin').find_files({
+    follow = true,
+    no_ignore = true,
+    hidden = true,
+}))
+end, { noremap = true })
+
+vim.keymap.set({ 'n', 't' }, '<C-p>',  execute_with_mark(builtin.find_files), {noremap = true})
 vim.keymap.set('n', '<C-f>*', execute_with_mark(builtin.grep_string), {noremap = true})
 vim.keymap.set('n', '<C-f>g', execute_with_mark(builtin.live_grep), {noremap = true})
 vim.keymap.set('n', '<C-f>d', execute_with_mark(builtin.lsp_definitions), {noremap = true})
@@ -57,6 +65,6 @@ vim.keymap.set('n', '<C-f>r', execute_with_mark(builtin.lsp_references), {norema
 vim.keymap.set('n', '<C-f>i', execute_with_mark(builtin.lsp_incoming_calls), {noremap = true})
 vim.keymap.set('n', '<C-f>q', execute_with_mark(builtin.quickfix), {noremap = true})
 vim.keymap.set('n', '<C-f>m', execute_with_mark(builtin.lsp_implementations), {noremap = true})
--- vim.keymap.set('n', '<C-f>s', builtin.lsp_workspace_symbols, {noremap = true})
+vim.keymap.set('n', '<C-f>s', builtin.lsp_workspace_symbols, {noremap = true})
 -- Sort of strictly worse than finding definitions afaict, since those work for typedefs
 -- vim.keymap.set('n', '<C-f>t', builtin.lsp_type_definitions, {noremap = true})

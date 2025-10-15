@@ -16,6 +16,7 @@
       ./modules/konsole/konsole.nix
       ./modules/picom/picom.nix
       ./modules/cursor/cursor.nix
+      ./modules/starship/starship.nix
     ];
 
     # Do not change
@@ -70,6 +71,8 @@
       rxvt-unicode-unwrapped
       scrot
       xclip
+      cgdb
+      starship
     ];
   };
 }

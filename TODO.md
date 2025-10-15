@@ -1,12 +1,8 @@
-## Code Cleanup
-- share config with work setup
-- get everything reasonable in github
-- get rofi and i3 specific config into user config space
-- clean up the rofi config to work like i3 one
-- one day try to make a konsole configurator in typed nix
-- things like polybar script should have a nice package / fn other things can ref
+## New Stuff / TODO
 
-## Features
+## Code Cleanup
+- clean up whatever makes nvim feel "slow" sometimes ... I think _mostly_ LSP related
+- one day try to make a konsole configurator in typed nix
 
 ## Completed
 - Lock screen stuck verifying...
@@ -32,3 +28,13 @@
 - gaps
 - finalize the background of everything
 - compositor
+- get symbol search working with telescope
+- pyright 
+- quickfix fix
+- gitignore ignoring thing
+- share config with work setup
+- get everything reasonable in github
+- clean up the rofi config to work like i3 one
+- things like polybar script should have a nice package / fn other things can ref
+- get rofi and i3 specific config into user config space
+- good bash line

@@ -31,6 +31,8 @@ in
   };
 
   programs.dconf.enable = true;
+  # TODO: Not sure if this is necessary...
+  programs.nix-ld.enable = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -128,6 +130,11 @@ in
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
+
+  systemd.user.services.pipewire.serviceConfig = {
+    Restart = "on-failure";
+    RestartSec = "1s";
+  };
 
   users.users."${secrets.user0}" = secrets.user0config;
 

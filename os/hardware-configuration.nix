@@ -34,8 +34,11 @@
     powerManagement.finegrained = false;
     powerManagement.enable = false;
     open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
+  hardware.opengl.enable = true;
   hardware.graphics = {
+    enable = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
       vaapiVdpau

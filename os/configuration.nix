@@ -46,7 +46,7 @@ in
   time.timeZone = "America/New_York";
 
   fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+    pkgs.nerd-fonts.sauce-code-pro
   ];
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -63,7 +63,8 @@ in
     enable = true;
     package = pkgs.bluez;
   };
-  # services.blueman-applet.enable = true;
+  # Better dbus configurator
+  services.ratbagd.enable = true;
   services.blueman = {
     enable = true;
   };
@@ -96,6 +97,12 @@ in
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
+    libinput.enable = true;
+    libinput.mouse = {
+      accelProfile = "flat";
+      accelSpeed = "0.0";
+      middleEmulation = false;
+    };
     
     displayManager.lightdm.greeters.gtk = {
       enable = true;

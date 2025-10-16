@@ -48,7 +48,7 @@
       jq
       fzf
       llvmPackages_latest.clang-unwrapped
-      python311Packages.compiledb
+      compiledb
       ccls
       lua-language-server
       pyright
@@ -63,7 +63,7 @@
       htop
       firefox
       google-chrome
-      konsole
+      libsForQt5.konsole
       pavucontrol
       hsetroot
       picom
@@ -73,6 +73,8 @@
       xclip
       cgdb
       starship
+      bolt-launcher
+      piper
     ];
   };
 }

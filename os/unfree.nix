@@ -9,7 +9,6 @@
       "nvidia-persistenced"
       "spotify"
       "discord"
-      "google-chrome"
       "runescape"
     ];
 }

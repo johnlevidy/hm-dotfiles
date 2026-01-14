@@ -33,7 +33,7 @@ let
         --nofork \
         --composite
 
-      xrandr --output HDMI-0 --mode 7680x2160 --rate 60
+      xrandr --output HDMI-0 --mode 7680x2160 --rate 100 
       systemctl start --user picom.service
     '';
   };

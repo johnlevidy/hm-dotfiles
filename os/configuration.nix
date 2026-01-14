@@ -14,6 +14,9 @@ in
     gruvbox-gtk-theme
     home-manager
     bazecor
+    # For iphone pairing
+    # ifuse
+    # libimobiledevice
   ];
   imports =
     [ # Include the results of the hardware scan.
@@ -37,10 +40,14 @@ in
   # Use the GRUB 2 boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+  "usbcore.autosuspend=-1"
+  "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  "nvidia-drm.modeset=1"
+  ];
 
-  networking.wireless.enable = true;
-  networking.networkmanager.enable = false;
-  networking.wireless.networks = secrets.wifi;
+  networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -63,6 +70,8 @@ in
     enable = true;
     package = pkgs.bluez;
   };
+  # iPhone pairing
+  # services.usbmuxd.enable = true;
   # Better dbus configurator
   services.ratbagd.enable = true;
   services.blueman = {
@@ -124,7 +133,7 @@ in
       ${pkgs.hsetroot}/bin/hsetroot -fill ${share.desktopBackground};
     '';
     displayManager.setupCommands = ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --mode 7680x2160 --rate 60
+      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --mode 7680x2160 --rate 100
       ${pkgs.xorg.xrandr}/bin/xrandr --dpi 140
     '';
   };

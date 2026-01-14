@@ -27,6 +27,8 @@
       enable = true;
       shellAliases = {
         gl = "git log --all --graph --decorate --oneline";
+        # Simulates unplugging and replugging mouse, driver gets stuck often.
+        bouncemouse = "sudo bash -c 'dev=5-4.2; echo 0 > /sys/bus/usb/devices/$dev/authorized; sleep 1; echo 1 > /sys/bus/usb/devices/$dev/authorized'";
       };
     };
     programs.dircolors = {
@@ -35,7 +37,7 @@
     };
     home.sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = "firefox";
+      BROWSER = "brave";
       TERMINAL = "konsole";
     };
     
@@ -53,7 +55,12 @@
       lua-language-server
       pyright
       lua
-      brave
+      (brave.override {
+      commandLineArgs = [
+      "--disable-gpu-process-crash-limit"
+      "--ignore-gpu-blocklist"
+      ];
+      })
       spotify
       gcc11
       git
@@ -61,8 +68,6 @@
       rofi
       discord
       htop
-      firefox
-      google-chrome
       libsForQt5.konsole
       pavucontrol
       hsetroot
@@ -75,6 +80,8 @@
       starship
       bolt-launcher
       piper
+      simplescreenrecorder
+      vlc
     ];
   };
 }

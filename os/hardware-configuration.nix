@@ -30,9 +30,9 @@
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.nvidia = {
-    modesetting.enable = false;
+    modesetting.enable = true;
     powerManagement.finegrained = false;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };

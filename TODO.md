@@ -1,4 +1,7 @@
 ## New Stuff / TODO
+- chrome losing GPU / spawning all new threads with disable-gpu-compositing after a hibernate cycle
+- having to go to the GUI-less screen first to get monitor to respond properly
+- mouse sometimes still suspends
 
 ## Code Cleanup
 - clean up whatever makes nvim feel "slow" sometimes ... I think _mostly_ LSP related

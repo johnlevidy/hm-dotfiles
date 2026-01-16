@@ -55,12 +55,7 @@
       lua-language-server
       pyright
       lua
-      (brave.override {
-      commandLineArgs = [
-      "--disable-gpu-process-crash-limit"
-      "--ignore-gpu-blocklist"
-      ];
-      })
+      brave
       spotify
       gcc11
       git

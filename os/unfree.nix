@@ -10,5 +10,8 @@
       "spotify"
       "discord"
       "runescape"
+      "lmstudio"
+      "steam"
+      "steam-unwrapped"
     ];
 }

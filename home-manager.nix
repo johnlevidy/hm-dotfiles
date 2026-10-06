@@ -59,6 +59,7 @@
       commandLineArgs = [
       "--disable-gpu-process-crash-limit"
       "--ignore-gpu-blocklist"
+      "--disable-features=TabAudioMuting"
       ];
       })
       spotify

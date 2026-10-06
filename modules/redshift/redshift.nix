@@ -4,6 +4,7 @@
     tray = true;
     enable = true;
     temperature = {
+      day=6500;
       night = 2400;
     };
     latitude = "40.71";

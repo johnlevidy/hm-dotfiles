@@ -34,6 +34,12 @@ in
   };
 
   programs.dconf.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
   # TODO: Not sure if this is necessary...
   programs.nix-ld.enable = true;
 
@@ -88,7 +94,7 @@ in
       "bluez5.enable-sbc-xq" = true;
       "bluez5.enable-msbc" = true;
       "bluez5.enable-hw-volume" = true;
-      "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+      "bluez5.auto-switch-profile" = false;
   };
 };
 
@@ -133,7 +139,7 @@ in
       ${pkgs.hsetroot}/bin/hsetroot -fill ${share.desktopBackground};
     '';
     displayManager.setupCommands = ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --mode 7680x2160 --rate 100
+      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --mode 7680x2160 --rate 120
       ${pkgs.xorg.xrandr}/bin/xrandr --dpi 140
     '';
   };

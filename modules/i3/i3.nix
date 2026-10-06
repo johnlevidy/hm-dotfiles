@@ -33,7 +33,7 @@ let
         --nofork \
         --composite
 
-      xrandr --output HDMI-0 --mode 7680x2160 --rate 100 
+      xrandr --output HDMI-0 --mode 7680x2160 --rate 120
       systemctl start --user picom.service
     '';
   };
@@ -106,6 +106,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym Control+Mod1+t exec i3-sensible-terminal
+bindsym Control+Mod1+r exec whisper-dictate-toggle
+
 # bindsym Mod1+Return exec i3-sensible-terminal
 
 # kill focused window

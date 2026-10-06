@@ -9,7 +9,7 @@
     fadeDelta = 5;
     inactiveOpacity = .88; 
     settings.opacity-rule = [
-      "100:class_g = 'brave'"
+      "100:class_g = 'Brave-browser'"
     ];
   };
 }

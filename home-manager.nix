@@ -10,6 +10,7 @@
     home.homeDirectory = "/home/john";
     imports = [
       ./portable.nix
+      ./modules/polybar/polybar.nix
       ./modules/rofi/rofi.nix
       ./modules/redshift/redshift.nix      
       ./modules/picom/picom.nix

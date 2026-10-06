@@ -9,14 +9,11 @@
     home.username = "john";
     home.homeDirectory = "/home/john";
     imports = [
-      ./modules/nvim/nvim.nix
-      ./modules/polybar/polybar.nix
+      ./portable.nix
       ./modules/rofi/rofi.nix
       ./modules/redshift/redshift.nix      
-      ./modules/konsole/konsole.nix
       ./modules/picom/picom.nix
       ./modules/cursor/cursor.nix
-      ./modules/starship/starship.nix
     ];
 
     # Do not change
